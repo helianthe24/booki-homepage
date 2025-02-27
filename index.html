@@ -16,11 +16,57 @@
 
 <body>
     <div class="main-container">
-        <header></header>
+        <header>
+            <nav>
+                <img src="images/logo/Booki.png" alt="Logo Booki" id="logo-header"/>
+                <div class="nav-links">
+                    <a href="">Hébergements</a>
+                    <a href="">Activités</a>
+                </div>
+            </nav>
+            <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
+            <p>En plein centre-ville ou en pleine nature</p>
+            <div class="search-bar">
+                <i class="fa-solid fa-location-dot location-icon"></i>
+                <input type="search" placeholder="Marseille, France">
+                <button>Rechercher</button>
+            </div>
+        </header>
         <main>
+            <div class="filters">
+                <p>Filtres</p>
+                <button><i class="fa-solid fa-money-bill"></i> Économique</button>
+                <button><i class="fa-solid fa-person"></i> Familial</button>
+                <button><i class="fa-solid fa-heart"></i> Romantique</button>
+                <button><i class="fa-solid fa-fire"></i> Nos pépites</button>
+            </div>
+            <div class="logements-dispo">
+                <i class="fa-solid fa-circle-info info-icon"></i>
+                <p>Plus de 500 logements sont disponibles dans cette ville</p>
+            </div>
             <div class="hebergements-and-populaires">
                 <section class="hebergements">
-
+                    <h2>Hébergements à Marseille</h2>
+                    <div class="hebergements-cards">
+                        <!-- Hôtel du port -->
+                        <article class="card2">
+                            <img src="images/hebergements/fred-kleber.jpg" alt="Image d'une chambre d'hôtel montrant 2 lits et une fenêtre">
+                            <div class="card2-content">
+                                <div class="card2-txt">
+                                    <h3 class="card-title">Hôtel du port</h3>
+                                    <p class="card-subtitle">Nuit à partir de 52<span class="euro">€</span></p>
+                                </div>
+                                <div class="card-rating">
+                                    <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
+                                    <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
+                                    <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
+                                    <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
+                                    <i class="fa-xs fa-solid fa-star neutral-star" aria-hidden="true"></i>
+                                    <span class="sr-only">Note de 4 sur 5</span>
+                                </div>
+                            </div>
+                        </article>
+                    </div> <!-- Fermeture de hebergements-cards -->
                 </section>
                 <section class="populaires">
                     <div class="populaires-title">
