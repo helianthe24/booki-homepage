@@ -137,10 +137,6 @@ h1 + p {
     cursor: pointer;
 }
 
-.search-bar button:hover {
-    background-color: #DEEBFF;
-}
-
 .filters {
     font-weight: bold;
     display: flex;
@@ -222,11 +218,19 @@ h1 + p {
 }
 
 .card2-content {
-    padding: 10px;
+    padding-left: 15px;
 }
 
 .card-title {
     font-size: 16px;
+    margin: 0;
+    padding-top: 4px;
+}
+
+.card2-txt .card-subtitle {
+    margin: 0;
+    padding-top: 8px;
+    padding-bottom: 8px;
 }
 
 .euro {
@@ -239,6 +243,17 @@ h1 + p {
 
 .fa-star {
     color: #0065FC;
+}
+
+.card2-content .fa-star {
+    padding-bottom: 15px;
+}
+
+#display-more {
+    font-weight: bold;
+    font-size: 18px;
+    margin: 0;
+    padding-top: 30px;
 }
 
 /* Hebergements And Populaires */
@@ -262,13 +277,16 @@ h1 + p {
 .hebergements-cards {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 30px;
+    margin-top: 30px;
 }
 
-h2 {
+.activities-title {
     margin: 0;
     size: 22px;
+    padding-top: 65px;
+    padding-bottom: 30px;
+    padding-left: 30px;
 }
 
 
@@ -317,8 +335,29 @@ h2 {
     margin-bottom: 5px;
 }
 
+/****** Activités à Marseille ***********/
 
+.card3 {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    width: 100%;
+    max-width: 300px;
+}
 
+.card3 img {
+    width: 100%;
+    width: 300px;
+    height: 380px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    object-fit: cover;
+}
+
+.activities {
+    display: flex;
+}
 
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
