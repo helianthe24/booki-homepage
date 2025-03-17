@@ -9,10 +9,6 @@
     --filter-bg-color: #DEEBFF;
 }
 
-.fa-solid {
-    color: var(--main-color);
-}
-
 body {
     display: flex;
     justify-content: center;
@@ -22,19 +18,21 @@ body {
     width: 100%;
     max-width: 1440px;
     padding: 0 50px;
-    box-sizing: border-box;
+    box-sizing: border-box; /* Garde la taille des éléments fixe en incluant padding et bordure */
 }
 
+/****** Header ***********/
+
 nav {
-    display: flex;         /* Active Flexbox */
-    justify-content: space-between; /* Répartit les éléments aux extrémités */
-    align-items: center;   /* Centre verticalement */
-    padding: 20px 20px 20px 0;         /* Ajoute un peu d'espace */
+    display: flex;         
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 20px 20px 0;
 }
 
 .nav-links {
-    display: flex;         /* Permet d'aligner les liens horizontalement */
-    gap: 68px;             /* Espacement entre les liens */
+    display: flex;         
+    gap: 68px;
 }
 
 a {
@@ -48,31 +46,31 @@ a {
 }
 
 .nav-links a {
-    position: relative; /* Permet de positionner le ::before par rapport au lien */
+    position: relative; /* L'élément reste à sa place, mais devient une référence pour absolute */
     text-decoration: none;
     color: black;
-    padding: 5px 0; /* Ajoute un petit espace pour l'effet */
-    transition: color 0.3s ease-in-out; /* Animation fluide du texte */
+    padding: 5px 0;
+    transition: color 0.3s ease-in-out;
 }
 
 .nav-links a::before {
-    content: ""; /* Nécessaire pour générer l'élément */
-    position: absolute;
-    bottom: 150%; /* Place la barre au-dessus du texte */
-    left: 0;
-    width: 100%; /* La barre fait la largeur du texte */
-    height: 3px; /* Hauteur de la barre */
-    background-color: #0065FC; /* Couleur bleue */
-    transform: scaleX(0); /* Cache la barre au départ */
-    transition: transform 0.3s ease-in-out;
-}
+    content: "";
+    position: absolute; /* L'élément sort du flux normal et se positionne par rapport à son parent relative */
+        bottom: 150%; 
+        left: 0;
+        width: 100%; 
+        height: 3px; 
+        background-color: var(--main-color); 
+        transform: scaleX(0);
+        transition: transform 0.3s ease-in-out;
+    }
 
 .nav-links a:hover {
-    color: #0065FC; /* Change la couleur du texte en bleu */
+    color: var(--main-color);
 }
 
 .nav-links a:hover::before {
-    transform: scaleX(1); /* Affiche la barre */
+    transform: scaleX(1); 
 }
 
 h1 {
@@ -94,26 +92,28 @@ h1 + p {
     margin-bottom: 35px;
 }
 
-/* Icône de localisation */
+.fa-solid {
+    color: var(--main-color);
+}
+
 .location-icon {
-    background-color: #F2F2F2;
+    background-color: var(--main-bg-color);
     color: black;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px; /* Ajuste selon la maquette */
+    width: 50px; 
     height: 50px;
-    min-width: 50px; /* Empêche la compression */
+    min-width: 50px;
     border-top-left-radius: 15px;
     border-bottom-left-radius: 15px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
 }
 
-/* Barre de recherche */
 .search-bar input {
     outline: none;
-    border: 1px solid #F2F2F2;
+    border: 1px solid var(--main-bg-color);
     width: 195px;
     padding: 15px;
     flex: 1;
@@ -122,9 +122,8 @@ h1 + p {
     text-align: center;
 }
 
-/* Bouton de recherche */
 .search-bar button {
-    background-color: #0065FC;
+    background-color: var(--main-color);
     color: white;
     border: none;
     font-weight: bold;
@@ -134,8 +133,10 @@ h1 + p {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     font-size: 16px;
-    cursor: pointer;
+    cursor: pointer; /* Affiche une main lorsque la souris survole le bouton */
 }
+
+/****** Filtres ***********/
 
 .filters {
     font-weight: bold;
@@ -156,11 +157,11 @@ h1 + p {
 }
 
 .filters button i {
-    margin-right: 8px; /* Ajoute un espace entre l'icône et le texte */
+    margin-right: 8px;
 }
 
 .filters button:hover {
-    background-color: #DEEBFF;
+    background-color: var(--filter-bg-color);
 }
 
 .logements-dispo {
@@ -170,43 +171,64 @@ h1 + p {
 }
 
 .info-icon {
-    background-color: #0065FC;
-    color: white;
+    background-color: white;
+    color: var(--main-color);
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-right: 2.5px;
+    margin-right: 10px;
+    height: 24px;
+    width: 24px;
+    border: 1px solid #D9D9D9;
+    font-size: 12px;
 }
 
 .logements-dispo p {
     margin: 0;
 }
 
-.section-title {
+#display-more {
+    font-weight: bold;
+    font-size: 18px;
     margin: 0;
-    font-size: 22px;
+    padding-top: 30px;
 }
 
-.card {
-    background-color: white;
+/* Hebergements And Populaires */
+.hebergements-and-populaires {
+    display: flex;
+    justify-content: space-between;
+}
+
+.hebergements-and-populaires section {
+    background-color: var(--main-bg-color);
     border-radius: 20px;
-    padding: 5px;
-    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+    padding: 30px;
+    box-sizing: border-box;
+}
+/* Hebergements */
+.hebergements {
+    width: 65%;
 }
 
-.card img {
-    object-fit: cover;
+#hebergements-title {
+    margin: 0;
 }
 
+.hebergements-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 30px;
+    margin-top: 30px;
+}
 
 .card2 {
     background-color: white;
     border-radius: 20px;
     padding: 5px;
     filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
-    width: 100%;
-    max-width: 250px;
+    width: 100%; /* La largeur est gérée par le grid */
 }
 
 .card2 img {
@@ -242,53 +264,12 @@ h1 + p {
 }
 
 .fa-star {
-    color: #0065FC;
+    color: var(--main-color);
 }
 
 .card2-content .fa-star {
     padding-bottom: 15px;
 }
-
-#display-more {
-    font-weight: bold;
-    font-size: 18px;
-    margin: 0;
-    padding-top: 30px;
-}
-
-/* Hebergements And Populaires */
-.hebergements-and-populaires {
-    display: flex;
-    justify-content: space-between;
-}
-
-.hebergements-and-populaires section {
-    background-color: var(--main-bg-color);
-    border-radius: 20px;
-    padding: 30px;
-    box-sizing: border-box;
-}
-
-/* Hebergements */
-.hebergements {
-    width: 65%;
-}
-
-.hebergements-cards {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    margin-top: 30px;
-}
-
-.activities-title {
-    margin: 0;
-    size: 22px;
-    padding-top: 65px;
-    padding-bottom: 30px;
-    padding-left: 30px;
-}
-
 
 /****** Populaires ***********/
 .populaires {
@@ -299,6 +280,22 @@ h1 + p {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+
+.section-title {
+    margin: 0;
+    font-size: 22px;
+}
+
+.card {
+    background-color: white;
+    border-radius: 20px;
+    padding: 5px;
+    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
+}
+
+.card img {
+    object-fit: cover;
 }
 
 .populaires-cards .card {
@@ -337,33 +334,117 @@ h1 + p {
 
 /****** Activités à Marseille ***********/
 
-.card3 {
-    background-color: white;
-    border-radius: 20px;
-    padding: 5px;
-    filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
-    width: 100%;
-    max-width: 300px;
-}
+.activities-title {
+    margin: 0;
+    font-size: 22px;
+    margin: 0;
+    padding-top: 65px;
+    padding-bottom: 30px;
+    padding-left: 30px;
+  }
 
-.card3 img {
+.card3 {
     width: 100%;
-    width: 300px;
+    height: 439px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: white;
+  }
+
+  .card3:hover {
+    transform: scale(1.02);
+  }
+  
+  .card3 img {
+    width: 100%;
     height: 380px;
-    border-top-left-radius: 20px;
-    border-top-right-radius: 20px;
     object-fit: cover;
-}
+  }
+  
+  .card3 h3 {
+    padding: 15px 20px;
+    margin: 0;
+    font-size: 16px;
+    font-weight: 700;
+  }
 
 .activities {
     display: flex;
-}
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 40px;
+  }
 
+/****** Footer ***********/
+
+.footer {
+    display: flex;
+    justify-content: flex-start;
+    background-color: var(--main-bg-color);
+    padding: 20px 0 0 20px;
+    margin-top: 65px;
+  }
+  
+  .footer-column {
+    width: 30%;
+    margin-right: 5%;
+  }
+  
+  .footer-column h3 {
+    font-size: 18px;
+    margin-top: 0;
+    margin-bottom: 20px;
+    font-weight: 700;
+  }
+  
+  .footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .footer-column li {
+    margin-bottom: 12px;
+  }
+  
+  .footer-column a {
+    text-decoration: none;
+    color: #000;
+    font-size: 16px;
+  }
+  
+  .footer-column a:hover {
+    text-decoration: underline;
+  }
+  
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
 /****** Media queries ***********/
 /* Medium devices (tablets, less/equal than 1024px) */
 @media (max-width: 1024px) {
+
+    .filters {
+        position: relative;
+        padding-top: 0;
+        margin-top: 70px; /* Augmenté pour maintenir l'espace entre la searchbar et "Filtres" */
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+   
+    .filters p {
+        position: absolute;
+        top: -35px;
+        left: 0;
+        margin: 0;
+        padding: 0;
+    }
+    
+    .filters button {
+        margin: 0;
+    }
+
     .hebergements-and-populaires {
         flex-direction: column;
     }
@@ -394,9 +475,205 @@ h1 + p {
     .populaires-cards .card-subtitle {
         font-size: 13px;
     }
+
+    .card3 {
+        height: auto;
+    }
+
+    .card3 img {
+
+         width: 100%;
+        
+         height: 200px;
+        
+         object-fit: cover;
+        
+         }
 }
 
-/* Small devices (phones, less than 768px) */
-@media (max-width: 767.98px) {
-    /* ... */
+@media (max-width: 768px) {
+    /* Navigation */
+    nav {
+        flex-direction: column;
+        padding: 30px 0 0 0;
+    }
+
+    #logo-header {
+        width: 96px;
+        height: 30px;
+        margin: 0 auto 30px auto;
+    }
+
+    .nav-links {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        width: 100vw; /* Assure que la navigation prend toute la largeur de l'écran */
+        position: relative; /* Nécessaire pour la pseudo-élément */
+    }
+
+    .nav-links::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 2px; /* Épaisseur de la bordure */
+        background: linear-gradient(
+            to right,
+            var(--main-color) 50%,   /* Bleu sur la première moitié */
+            var(--main-bg-color) 50%  /* Gris sur la seconde moitié */
+        );
+    }
+
+    .nav-links a {
+        width: 100%; /* Chaque lien prend toute la place de sa colonne */
+        text-align: center;
+        padding: 16px 0;
+        font-size: 16px;
+        transition: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .nav-links a::before {
+        display: none; /* Cache la ligne animée sous le lien */
+    }
+
+    .nav-links a[href="#hebergements"] {
+        border-color: var(--main-color);
+    }
+
+    .nav-links a:first-child {
+        color: var(--main-color); /* Applique la couleur bleue à "Hébergements" */
+    }
+
+    h1 {
+        margin-top: 30px; /* Ajuste la marge selon ton besoin */
+    }
+
+
+.search-bar {
+    width: 100%;
+    justify-content: space-between;
+    position: relative;
+}
+
+.search-bar input {
+    outline: none;
+    border: 1px solid var(--main-bg-color);
+    width: calc(100% - 60px); /* Réduit la largeur pour laisser de l'espace au bouton */
+    padding: 15px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.search-bar button {
+    background-color: var(--main-color);
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0;
+    border-radius: 10px;
+    width: 50px; /* Largeur fixée du bouton */
+    height: 100%; /* Prend toute la hauteur de l'input */
+    position: absolute;
+    right: 0; /* Colle à la droite de la barre de recherche */
+    top: 0; /* Aligné avec le haut de la barre de recherche */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-bar button::before {
+    content: "\f002"; /* Code Unicode de l'icône loupe dans Font Awesome */
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    font-size: 16px;
+}
+
+.search-bar button span {
+    display: none; /* Cache le texte "Rechercher" en mode mobile */
+}
+    
+
+    /* ... autres styles ... */
+
+    /* Filtres version mobile */
+    .filters {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        width: 100%;
+        margin-bottom: 25px;
+    }
+
+    .filters p {
+        position: static;
+        grid-column: 1 / -1; /* Le texte "Filtres" prend toute la largeur */
+        margin-bottom: 10px;
+    }
+
+    .filters button {
+        width: 100%;
+        padding: 12px 10px;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+    }
+
+    .filters button i {
+        margin-right: 8px;
+    }
+
+    .hebergements-and-populaires {
+        flex-direction: column-reverse;
+    }
+    
+    .populaires {
+        margin-top: 0;
+        margin-bottom: 35px;
+    }
+    /* Hébergements */
+    .hebergements-cards {
+        grid-template-columns: 1fr;
+    }
+
+    /* Populaires */
+    .populaires-cards {
+        flex-direction: column;
+    }
+
+    .populaires-cards a {
+        width: 100%;
+    }
+
+    /* Activités */
+    .activities {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .card3 {
+        height: auto;
+    }
+
+    .card3 img {
+        height: 140px;
+    }
+
+    /* Footer */
+    .footer {
+        flex-direction: column;
+        padding: 30px;
+    }
+
+    .footer-column {
+        width: 100%;
+        margin-bottom: 30px;
+    }
 }

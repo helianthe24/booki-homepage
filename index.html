@@ -20,8 +20,8 @@
             <nav>
                 <img src="images/logo/Booki.png" alt="Logo Booki" id="logo-header"/>
                 <div class="nav-links">
-                    <a href="">Hébergements</a>
-                    <a href="">Activités</a>
+                    <a href="#hebergements">Hébergements</a>
+                    <a href="#activites">Activités</a>
                 </div>
             </nav>
             <h1>Trouvez votre hébergement pour des vacances de rêve</h1>
@@ -29,7 +29,7 @@
             <div class="search-bar">
                 <i class="fa-solid fa-location-dot location-icon"></i>
                 <input type="search" placeholder="Marseille, France">
-                <button>Rechercher</button>
+                <button><span>Rechercher</span></button>
             </div>
         </header>
         <main>
@@ -41,12 +41,12 @@
                 <button><i class="fa-solid fa-fire"></i> Nos pépites</button>
             </div>
             <div class="logements-dispo">
-                <i class="fa-solid fa-circle-info info-icon"></i>
+                <i class="fa-solid fa-info info-icon"></i>
                 <p>Plus de 500 logements sont disponibles dans cette ville</p>
             </div>
             <div class="hebergements-and-populaires">
-                <section class="hebergements">
-                    <h2>Hébergements à Marseille</h2>
+                <section id="hebergements" class="hebergements">
+                    <h2 id="hebergements-title">Hébergements à Marseille</h2>
                     <div class="hebergements-cards">
                         <!-- Hôtel du port -->
                         <article class="card2">
@@ -171,7 +171,7 @@
                                 <div class="card-content">
                                     <div class="card-txt">
                                         <h3 class="card-title">Hôtel Le soleil du matin</h3>
-                                        <p class="card-subtitle">Nuit à partir de 128<span class="euro">€</span></p>
+                                        <p class="card-subtitle">Nuit à partir de 25<span class="euro">€</span></p>
                                     </div>
                                     <div class="card-rating">
                                         <i class="fa-xs fa-solid fa-star" aria-hidden="true"></i>
@@ -225,28 +225,50 @@
                     </div>
                 </section>
             </div>
-            <h2 class="activities-title">Activités à Marseille</h2>
+            <h2 id ="activites" class="activities-title">Activités à Marseille</h2>
             <section class="activities">
                 <article class="card3">
-                    <img src="images/activites/reno-laithienne.jpg">
+                    <img src="images/activites/reno-laithienne.jpg" alt="Image montrant le Vieux-Port">
                     <h3>Vieux-Port</h3>
                 </article>
                 <article class="card3">
-                    <img src="images/activites/paul-hermann.jpg">
+                    <img src="images/activites/paul-hermann.jpg" alt ="Image montrant le Fort de Pomègues">
                     <h3>Fort de Pomègues</h3>
                 </article>
                 <article class="card3">
-                    <img src="images/activites/kilyan-sockalingum.jpg">
+                    <img src="images/activites/kilyan-sockalingum.jpg" alt="Image montrant les Calanques">
                     <h3>Parc national des Calanques</h3>
                 </article>
                 <article class="card3">
-                    <img src="images/activites/florian-wehde.jpg">
+                    <img src="images/activites/florian-wehde.jpg" alt="Image montrant Notre-Dame-de-la-Garde">
                     <h3>Notre-Dame-de-la-Garde</h3>
                 </article>
             </section>
         </main>
-        <footer></footer>
+        <footer class="footer">
+            <div class="footer-column">
+              <h3>À propos</h3>
+              <ul>
+                <li><a href="#">Fonctionnement du site</a></li>
+                <li><a href="#">Conditions générales</a></li>
+                <li><a href="#">Données et confidentialité</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Nos hébergements</h3>
+              <ul>
+                <li><a href="#">Charte qualité</a></li>
+                <li><a href="#">Proposer votre hôtel</a></li>
+              </ul>
+            </div>
+            <div class="footer-column">
+              <h3>Assistance</h3>
+              <ul>
+                <li><a href="#">Centre d'aide</a></li>
+                <li><a href="#">Nous contacter</a></li>
+              </ul>
+            </div>
+          </footer>
     </div>
 </body>
-
 </html>
