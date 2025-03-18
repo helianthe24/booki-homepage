@@ -18,20 +18,20 @@ body {
     width: 100%;
     max-width: 1440px;
     padding: 0 50px;
-    box-sizing: border-box; /* Garde la taille des éléments fixe en incluant padding et bordure */
+    box-sizing: border-box;
 }
 
 /****** Header ***********/
 
 nav {
-    display: flex;         
+    display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 20px 20px 20px 0;
 }
 
 .nav-links {
-    display: flex;         
+    display: flex;
     gap: 68px;
 }
 
@@ -46,7 +46,7 @@ a {
 }
 
 .nav-links a {
-    position: relative; /* L'élément reste à sa place, mais devient une référence pour absolute */
+    position: relative;
     text-decoration: none;
     color: black;
     padding: 5px 0;
@@ -55,22 +55,21 @@ a {
 
 .nav-links a::before {
     content: "";
-    position: absolute; /* L'élément sort du flux normal et se positionne par rapport à son parent relative */
-        bottom: 150%; 
-        left: 0;
-        width: 100%; 
-        height: 3px; 
-        background-color: var(--main-color); 
-        transform: scaleX(0);
-        transition: transform 0.3s ease-in-out;
-    }
+    position: absolute;
+    bottom: 150%;
+    left: 0;
+    width: 0; /* Initialement caché */
+    height: 3px;
+    background-color: var(--main-color);
+    transition: width 0.3s ease-in-out; /* On anime width au lieu de scaleX */
+}
 
 .nav-links a:hover {
     color: var(--main-color);
 }
 
 .nav-links a:hover::before {
-    transform: scaleX(1); 
+    width: 100%; /* Fait apparaître la ligne */
 }
 
 h1 {
@@ -78,21 +77,35 @@ h1 {
     font-size: 22px;
 }
 
-h1 + p {
+h1+p {
     margin-top: 0;
     margin-bottom: 35px;
     font-size: 16px;
 }
+
 .search-bar {
     display: flex;
     align-items: center;
     background-color: white;
     border-radius: 25px;
-    width: fit-content; /* Ajuste la largeur en fonction du contenu */
+    width: fit-content;
     margin-bottom: 35px;
 }
 
-.fa-solid {
+.fa-star {
+    color: var(--main-color);
+}
+
+.neutral-star {
+    color: var(--main-bg-color) !important;
+    /* Forcer le gris */
+}
+
+/* Cibler uniquement les icônes nécessaires */
+.location-icon .fa-solid,
+.button-icon .fa-solid,
+.filters button i,
+.fa-chart-line {
     color: var(--main-color);
 }
 
@@ -102,7 +115,7 @@ h1 + p {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 50px; 
+    width: 50px;
     height: 50px;
     min-width: 50px;
     border-top-left-radius: 15px;
@@ -133,7 +146,7 @@ h1 + p {
     border-top-left-radius: 0;
     border-bottom-left-radius: 0;
     font-size: 16px;
-    cursor: pointer; /* Affiche une main lorsque la souris survole le bouton */
+    cursor: pointer;
 }
 
 /****** Filtres ***********/
@@ -207,6 +220,7 @@ h1 + p {
     padding: 30px;
     box-sizing: border-box;
 }
+
 /* Hebergements */
 .hebergements {
     width: 65%;
@@ -228,7 +242,7 @@ h1 + p {
     border-radius: 20px;
     padding: 5px;
     filter: drop-shadow(0px 3px 15px rgba(0, 0, 0, 0.1));
-    width: 100%; /* La largeur est gérée par le grid */
+    width: 100%;
 }
 
 .card2 img {
@@ -257,14 +271,6 @@ h1 + p {
 
 .euro {
     font-weight: 700;
-}
-
-.neutral-star {
-    color: var(--main-bg-color);
-}
-
-.fa-star {
-    color: var(--main-color);
 }
 
 .card2-content .fa-star {
@@ -341,7 +347,14 @@ h1 + p {
     padding-top: 65px;
     padding-bottom: 30px;
     padding-left: 30px;
-  }
+}
+
+.activities a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+}
 
 .card3 {
     width: 100%;
@@ -351,31 +364,31 @@ h1 + p {
     box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
     background-color: white;
-  }
+}
 
-  .card3:hover {
+.card3:hover {
     transform: scale(1.02);
-  }
-  
-  .card3 img {
+}
+
+.card3 img {
     width: 100%;
     height: 380px;
     object-fit: cover;
-  }
-  
-  .card3 h3 {
+}
+
+.card3 h3 {
     padding: 15px 20px;
     margin: 0;
     font-size: 16px;
     font-weight: 700;
-  }
+}
 
 .activities {
     display: flex;
     justify-content: space-between;
     gap: 30px;
     margin-bottom: 40px;
-  }
+}
 
 /****** Footer ***********/
 
@@ -385,40 +398,40 @@ h1 + p {
     background-color: var(--main-bg-color);
     padding: 20px 0 0 20px;
     margin-top: 65px;
-  }
-  
-  .footer-column {
+}
+
+.footer-column {
     width: 30%;
     margin-right: 5%;
-  }
-  
-  .footer-column h3 {
+}
+
+.footer-column h3 {
     font-size: 18px;
     margin-top: 0;
     margin-bottom: 20px;
     font-weight: 700;
-  }
-  
-  .footer-column ul {
+}
+
+.footer-column ul {
     list-style: none;
     padding: 0;
     margin: 0;
-  }
-  
-  .footer-column li {
+}
+
+.footer-column li {
     margin-bottom: 12px;
-  }
-  
-  .footer-column a {
+}
+
+.footer-column a {
     text-decoration: none;
     color: #000;
     font-size: 16px;
-  }
-  
-  .footer-column a:hover {
+}
+
+.footer-column a:hover {
     text-decoration: underline;
-  }
-  
+}
+
 /* Le code ci-dessous correspond à la version responsive uniquement */
 
 /****** Media queries ***********/
@@ -428,11 +441,11 @@ h1 + p {
     .filters {
         position: relative;
         padding-top: 0;
-        margin-top: 70px; /* Augmenté pour maintenir l'espace entre la searchbar et "Filtres" */
+        margin-top: 70px;
         flex-wrap: wrap;
         gap: 10px;
     }
-   
+
     .filters p {
         position: absolute;
         top: -35px;
@@ -440,7 +453,7 @@ h1 + p {
         margin: 0;
         padding: 0;
     }
-    
+
     .filters button {
         margin: 0;
     }
@@ -450,6 +463,10 @@ h1 + p {
     }
 
     .hebergements {
+        width: 100%;
+    }
+
+    .hebergements-cards a {
         width: 100%;
     }
 
@@ -482,16 +499,21 @@ h1 + p {
 
     .card3 img {
 
-         width: 100%;
-        
-         height: 200px;
-        
-         object-fit: cover;
-        
-         }
+        width: 100%;
+
+        height: 200px;
+
+        object-fit: cover;
+
+    }
 }
 
 @media (max-width: 768px) {
+
+    .main-container {
+        padding: 0;
+    }
+
     /* Navigation */
     nav {
         flex-direction: column;
@@ -507,8 +529,8 @@ h1 + p {
     .nav-links {
         display: grid;
         grid-template-columns: 1fr 1fr;
-        width: 100vw; /* Assure que la navigation prend toute la largeur de l'écran */
-        position: relative; /* Nécessaire pour la pseudo-élément */
+        width: 100vw;
+        position: relative;
     }
 
     .nav-links::after {
@@ -517,16 +539,14 @@ h1 + p {
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 2px; /* Épaisseur de la bordure */
-        background: linear-gradient(
-            to right,
-            var(--main-color) 50%,   /* Bleu sur la première moitié */
-            var(--main-bg-color) 50%  /* Gris sur la seconde moitié */
-        );
+        height: 2px;
+        background: linear-gradient(to right,
+                var(--main-color) 50%,
+                var(--main-bg-color) 50%);
     }
 
     .nav-links a {
-        width: 100%; /* Chaque lien prend toute la place de sa colonne */
+        width: 100%;
         text-align: center;
         padding: 16px 0;
         font-size: 16px;
@@ -537,7 +557,8 @@ h1 + p {
     }
 
     .nav-links a::before {
-        display: none; /* Cache la ligne animée sous le lien */
+        display: none;
+        /* Cache la ligne animée sous le lien */
     }
 
     .nav-links a[href="#hebergements"] {
@@ -545,75 +566,82 @@ h1 + p {
     }
 
     .nav-links a:first-child {
-        color: var(--main-color); /* Applique la couleur bleue à "Hébergements" */
+        color: var(--main-color);
     }
 
     h1 {
-        margin-top: 30px; /* Ajuste la marge selon ton besoin */
+        margin-top: 30px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
+    h1+p {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-.search-bar {
-    width: 100%;
-    justify-content: space-between;
-    position: relative;
-}
+    .search-bar {
+        width: 100%;
+        justify-content: space-between;
+        position: relative;
+    }
 
-.search-bar input {
-    outline: none;
-    border: 1px solid var(--main-bg-color);
-    width: calc(100% - 60px); /* Réduit la largeur pour laisser de l'espace au bouton */
-    padding: 15px;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-}
+    .search-bar input {
+        outline: none;
+        border: 1px solid var(--main-bg-color);
+        width: calc(100% - 60px);
+        padding: 15px;
+        font-size: 16px;
+        font-weight: bold;
+        text-align: center;
+    }
 
-.search-bar button {
-    background-color: var(--main-color);
-    color: white;
-    border: none;
-    font-weight: bold;
-    font-size: 16px;
-    cursor: pointer;
-    padding: 0;
-    border-radius: 10px;
-    width: 50px; /* Largeur fixée du bouton */
-    height: 100%; /* Prend toute la hauteur de l'input */
-    position: absolute;
-    right: 0; /* Colle à la droite de la barre de recherche */
-    top: 0; /* Aligné avec le haut de la barre de recherche */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
+    .search-bar button {
+        background-color: var(--main-color);
+        color: white;
+        border: none;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        padding: 0;
+        border-radius: 10px;
+        width: 50px;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 
-.search-bar button::before {
-    content: "\f002"; /* Code Unicode de l'icône loupe dans Font Awesome */
-    font-family: "Font Awesome 6 Free";
-    font-weight: 900;
-    font-size: 16px;
-}
+    /* Bouton loupe */
+    .search-bar button::before {
+        content: "\f002";
+        font-family: "Font Awesome 6 Free";
+        font-weight: 900;
+        font-size: 16px;
+    }
 
-.search-bar button span {
-    display: none; /* Cache le texte "Rechercher" en mode mobile */
-}
-    
-
-    /* ... autres styles ... */
+    .search-bar button span {
+        display: none;
+    }
 
     /* Filtres version mobile */
     .filters {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
-        width: 100%;
+        width: 90%;
         margin-bottom: 25px;
+        padding-left: 20px;
+        padding-right: 20px;
     }
 
     .filters p {
         position: static;
-        grid-column: 1 / -1; /* Le texte "Filtres" prend toute la largeur */
+        grid-column: 1 / -1;
+        /* Le texte "Filtres" prend toute la largeur */
         margin-bottom: 10px;
     }
 
@@ -630,22 +658,53 @@ h1 + p {
         margin-right: 8px;
     }
 
+    .logements-dispo {
+        padding-left: 20px;
+    }
+
     .hebergements-and-populaires {
         flex-direction: column-reverse;
     }
-    
+
+    .hebergements-and-populaires .populaires {
+        background-color: var(--main-bg-color) !important;
+    }
+
+    .hebergements-and-populaires .hebergements {
+        background-color: transparent !important;
+    }
+
     .populaires {
         margin-top: 0;
         margin-bottom: 35px;
     }
+
     /* Hébergements */
+    .hebergements {
+        background-color: transparent;
+    }
+
     .hebergements-cards {
         grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .hebergements-cards a {
+        color: inherit;
+        text-decoration: none;
+        width: 100%;
+        display: block;
     }
 
     /* Populaires */
+
+    .populaires {
+        background-color: var(--main-bg-color);
+    }
+
     .populaires-cards {
         flex-direction: column;
+        gap: 15px;
     }
 
     .populaires-cards a {
@@ -653,17 +712,44 @@ h1 + p {
     }
 
     /* Activités */
+    .activities-title {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
     .activities {
         flex-direction: column;
         gap: 15px;
+        padding: 0 20px;
     }
 
     .card3 {
         height: auto;
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        border-radius: 20px;
+        overflow: hidden;
+        box-shadow: 0 3px 15px rgba(0, 0, 0, 0.1);
     }
 
     .card3 img {
+        width: 100%;
         height: 140px;
+        object-fit: cover;
+    }
+
+    .card3 h3 {
+        padding: 15px 20px;
+        margin: 0;
+        font-size: 16px;
+        font-weight: 700;
+    }
+
+    .activities-title {
+        margin-top: 30px;
+        margin-bottom: 20px;
+        padding-top: 0;
     }
 
     /* Footer */
